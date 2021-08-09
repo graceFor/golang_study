@@ -2,9 +2,14 @@ package main
 
 import "fmt"
 
+type person struct {
+	name    string
+	age     int
+	favFood []string
+}
+
 func main() {
-	a := 2
-	b := &a // a의 주소를 복사
-	*b = 20
-	fmt.Println(*a)
+	favFood := []string{"kim", "gogi"}
+	hyun := person{name: "hyun", age: 25, favFood: favFood}
+	fmt.Println(hyun) // 25
 }
