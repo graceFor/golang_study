@@ -2,16 +2,9 @@ package main
 
 import "fmt"
 
-func superAdd(numbers ...int) int {
-	total := 0
-	for _, number := range numbers {
-		total += number
-	}
-	return total
-
-}
-
 func main() {
-	total := superAdd(1, 2, 3, 4, 5, 6)
-	fmt.Println(total)
+	a := 2
+	b := &a // a의 주소를 복사
+	*b = 20
+	fmt.Println(*a)
 }
