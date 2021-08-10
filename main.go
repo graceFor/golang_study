@@ -12,6 +12,10 @@ func main() {
 	//fmt.Println(*account) // {hyun 0}
 	account.Despite(10)
 	fmt.Println(account.Balance())
-	account.Withdraw(10)
+	err := account.Withdraw(20)
+	if err != nil {
+		//log.Fatalln(err)
+		fmt.Println(err)
+	}
 	fmt.Println(account.Balance())
 }
