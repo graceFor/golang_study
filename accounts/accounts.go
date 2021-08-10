@@ -25,4 +25,5 @@ func (a Account) Balance() int {
 //Withdraw x amount from your account
 func (a *Account) Withdraw(amount int) {
 	a.balance -= amount
+	a.
 }
