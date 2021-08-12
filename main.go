@@ -3,19 +3,16 @@ package main
 import (
 	"fmt"
 
-	"github.com/graceFor/learngo/accounts"
+	"github.com/graceFor/learngo/mydict"
 )
 
 func main() {
-	account := accounts.NewAccount("hyun")
-	//fmt.Println(account)  // &{hyun 0}
-	//fmt.Println(*account) // {hyun 0}
-	account.Despite(10)
-	//fmt.Println(account.Balance())
-	// err := account.Withdraw(20)
-	// if err != nil {
-	// 	//log.Fatalln(err)
-	// 	fmt.Println(err)
-	// }
-	fmt.Println(account)
+	dictionary := mydict.Dictionary{"first": "First word"}
+	definition, err := dictionary.Search("second")
+	if err != nil {
+		fmt.Println((err))
+	} else {
+		fmt.Println((definition))
+	}
+	dictionary.Add()
 }
