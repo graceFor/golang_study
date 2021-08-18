@@ -33,3 +33,13 @@ func (d Dictionary) Add(word string, def string) error {
 	}
 	return nil
 }
+
+func (d dictionary) Update(word, definition string) {
+	_, err := d.Search((word))
+	switch err {
+	case errNotFound:
+		d[word] = def
+	case nil:
+		return errWordExists
+	}
+}
