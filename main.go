@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
 	urls := []string{
 		"https://www.airbnb.com/",
@@ -11,5 +13,9 @@ func main() {
 		"https://www.facebook.com/",
 		"https://www.instagram.com/",
 		"https://academy.nomadcoders.co/",
+	}
+
+	for _, url := range urls {
+		fmt.Println(url)
 	}
 }
