@@ -21,10 +21,13 @@ type extractedJob struct {
 var baseURL string = "http://kr.indeed.com/jobs?q=python&limit=50"
 
 func main() {
+	var jobs []extractedJob
 	totalPages := getPages()
 	for i := 0; i < totalPages; i++ {
-		getPage(i)
+		extractedjobs := getPage(i)
+		jobs = append(jobs, extractedjobs...)
 	}
+	fmt.Println(jobs)
 
 }
 
