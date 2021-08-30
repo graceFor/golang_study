@@ -29,7 +29,7 @@ func main() {
 		extractedjobs := getPage(i)
 		jobs = append(jobs, extractedjobs...)
 	}
-	fmt.Println(jobs)
+	writeJobs(jobs)
 
 }
 
@@ -39,6 +39,17 @@ func writeJobs(jobs []extractedJob) {
 
 	w := csv.NewWriter(file)
 	defer w.Flush()
+
+	headers := []string{"ID", "Title", "Location", "Salary", "Summary"}
+
+	wErr := w.Write(headers)
+	checkErr(wErr)
+
+	for _, job := range jobs {
+		jobSlice := []string{"https://kr.indeed.com/viewjob?jk=" + job.id, job.title, job.location, job.salary, job.summary}
+		jwErr := w.Write(jobSlice)
+		checkErr(jwErr)
+	}
 }
 
 // 한 페이지에 있는 job들 추출
